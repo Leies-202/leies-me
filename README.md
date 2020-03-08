@@ -3,7 +3,7 @@
 **Creating while learning**
 
 ## Thanks
-N-PrepSchool
+N prep school
 
 ## Progress
 Webデザイン HTML・CSSデザイン>HTMLとCSSの基礎学習>05.HTMLとCSSでレイアウトを組んでみよう
