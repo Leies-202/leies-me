@@ -1,0 +1,42 @@
+header{
+  background: #343a40;
+  color: #eeeeee;
+}
+
+body{
+  margin: 0;
+  background-color: #eeeeee;
+}
+
+.headerlnner,.mainlnner{
+  max-width: 650px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.headerlnner{
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer{
+  background: #343a40;
+  color: #eeeeee;
+}
+
+.footerlnner{
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+.avater{
+  text-align:center;
+}
+
+img{
+  border-radius: 12px;
+  margin-top: 10px;
+}
