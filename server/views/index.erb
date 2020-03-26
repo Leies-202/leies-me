@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <meta http-equiv="refresh" content="600">
+  </head>
+  
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- 左列 -->
+        <div class="col">
+          <div class="card">
+            <h4 class="card-header">天気予報</h4>
+            <div class="card-body">
+              <%
+                # 天気予報取得処理
+                require 'uri'
+                require 'net/http'
+                require 'yaml'
+                data = Net::HTTP.get(URI.parse("http://weather.livedoor.com/forecast/webservice/json/v1?city=220040"))
+                json = YAML.load(data)
+
+                # 今日と明日の天気
+                today = json["forecasts"][0]["telop"]
+                tomorrow = json["forecasts"][1]["telop"]
+               %>
+              <p class="card-text">                <% json["forecasts"].each { |forecast| %>
+                  <strong><%= forecast["dateLabel"] %></strong>:
+                  <%= forecast["telop"] %>
+                  <% if forecast["temperature"]["min"] %>
+                    <span class="text-info">最低<%= forecast["temperature"]["min"]["celsius"] %>℃</span>
+                  <% end %>
+                  <% if forecast["temperature"]["max"] %>
+                    <span class="text-danger">最高<%= forecast["temperature"]["max"]["celsius"] %>℃</span>
+                  <% end %>
+                  <br>
+                <% } %></p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <h4 class="card-header text-white bg-success">タイトル2</h4>
+            <div class="card-body">
+              <p class="card-text">本文2</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 右列 -->
+        <div class="col">
+          <div class="card">
+            <h4 class="card-header text-white bg-danger">タイトル3</h4>
+            <div class="card-body">
+              <p class="card-text">本文3</p>
+            </div>
+          </div>
+          
+          <div class="card text-white bg-dark">
+            <h4 class="card-header">タイトル4</h4>
+            <div class="card-body">
+              <p class="card-text">本文4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
