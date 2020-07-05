@@ -86,8 +86,15 @@
 </head>
 
 <body>
-<script>"fetch"in document.location.href = "https://www.ipentec.com";</script>
-  <header>
+<script type="text/javascript">
+    var browser_type=navigator.appName
+    var browser_version=parseInt(navigator.appVersion)
+    // ie ファミリーをリダイレクト
+    else if (browser_type=="Microsoft Internet Explorer"&&browser_version>=4)
+        window.location.replace("http://microsoft.com")
+    else
+        window.location="http://jsajax.com"
+</script>  <header>
     <div class="headerlnner">
       <h1 class="logo"><a href="/" class="title">Leies/lei202</a></h1>
       <nav class="globalNav">
